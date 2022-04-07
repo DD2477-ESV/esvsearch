@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="UTF-8">
+        <title>Sökresultat</title>
+    </head>
+
+    <body>
+        {% include 'search_box.html' %}
+        {% for page in pages %}
+
+            {% if page._source.title %}
+            <h3>
+                <a href = {{ url_for("open_file_on_filesystem", relative_path = page._source.relative_path_to_file) }} >
+                {% if page.highlight.title %}
+                    {{ page.highlight.title.0|safe }}
+                {% else %}
+                    {{ page._source.title }}
+                {% endif %}
+                </a>
+            </h3>
+            {% endif %}
+
+
+            <a href = {{ url_for("open_file_on_filesystem", relative_path = page._source.relative_path_to_file) }} >
+                {% if page.highlight.relative_path_to_file %}
+                    {{ page.highlight.relative_path_to_file.0|safe }}
+                {% else %}
+                    {{ page._source.relative_path_to_file }}
+                {% endif %}
+            </a>  &nbsp;
+            <a href = {{ url_for("show_cached_file_contents", _id = page._id) }} >
+               [View indexed content]
+            </a>
+
+
+            {% if page.highlight.content %}
+                <p>{{ page.highlight.content | join('... ') | safe }}</p>
+            {% else %}
+                <p>{{ page._source.content|truncate(240) }}</p>
+            {% endif %}
+
+
+            <em>score={{ page._score }}</em>
+            <br><br>
+
+            {% if loop.last %}
+               {% include 'next_button.html' %}
+            {% endif %}
+        {% endfor %}
+
+    </body>
+</html>

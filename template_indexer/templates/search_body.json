@@ -1,0 +1,110 @@
+{
+    "size": 10,
+    "query": {
+      "bool": {
+        "should": [
+          {
+            "match_phrase": {
+              "title": {
+                "query": "{{query_string}}",
+                "boost": 1,
+                "_name": "title-phrase"
+              }
+            }
+          },
+          {
+            "match_phrase": {
+              "relative_path_to_file": {
+                "query": "{{query_string}}",
+                "boost": 1,
+                "_name": "relative_path_to_file-phrase"
+              }
+            }
+          },
+          {
+            "match_phrase": {
+              "content": {
+                "query": "{{query_string}}",
+                "boost": 1,
+                "_name": "content-phrase"
+              }
+            }
+          },
+          {
+            "match": {
+              "title": {
+                "query": "{{query_string}}",
+                "operator": "and",
+                "boost": 1,
+                "_name": "title-and"
+              }
+            }
+          },
+          {
+            "match": {
+              "content": {
+                "query": "{{query_string}}",
+                "operator": "and",
+                "boost": 1,
+                "_name": "content-and"
+              }
+            }
+          },
+          {
+            "match": {
+              "relative_path_to_file": {
+                "query": "{{query_string}}",
+                "operator": "and",
+                "boost": 1,
+                "_name": "relative_path_to_file-and"
+              }
+            }
+          },
+          {
+            "match": {
+              "title": {
+                "query": "{{query_string}}",
+                "operator": "or",
+                "boost": 1,
+                "_name": "title-or"
+              }
+            }
+          },
+          {
+            "match": {
+              "content": {
+                "query": "{{query_string}}",
+                "operator": "or",
+                "boost": 1,
+                "_name": "content-or"
+              }
+            }
+          },
+          {
+            "match": {
+              "relative_path_to_file": {
+                "query": "{{query_string}}",
+                "operator": "or",
+                "boost": 1,
+                "_name": "relative_path_to_file-or"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "highlight": {
+      "require_field_match": false,
+      "fields": {
+        "title": {"number_of_fragments" : 0, "pre_tags": ["<em>"], "post_tags": ["</em>"]},
+        "relative_path_to_file": {"number_of_fragments" : 0, "pre_tags": ["<b>"], "post_tags": ["</b>"]},
+        "content": {"number_of_fragments" : 5, "pre_tags": ["<b>"], "post_tags": ["</b>"]}
+      }
+    },
+    {{ optional_search_after }}
+    "sort": [
+      {"_score": "desc"},
+      {"_id": "desc"}
+    ]
+  }
+  
