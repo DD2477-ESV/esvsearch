@@ -1,0 +1,8 @@
+.main-header{
+    background-color: #0D89EC;
+    display: flex;
+}
+
+#header-logo {
+    font-size: 40px;
+}
