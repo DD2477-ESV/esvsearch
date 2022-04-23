@@ -69,6 +69,12 @@ class Crawler:
             out.write(title)
 
     async def crawl_for_download(self, doc: document.Doc):
+        download_url_filename = f'{self.cache_dir}/download_urls/{doc.checksum}.txt'
+        if pathlib.Path(download_url_filename).exists():
+            with open(download_url_filename, 'r') as file:
+                doc.download_url = file.read().strip()
+                return
+
         await self.browser.page.goto(doc.url)
 
         element = await self.browser.page.querySelector('[download]')
@@ -77,3 +83,6 @@ class Crawler:
 
         url = await self.browser.page.evaluate('(element) => element.href', element)
         doc.download_url = url
+
+        with open(download_url_filename, 'w') as out:
+            out.write(doc.download_url)
