@@ -82,10 +82,14 @@ class Doc:
             with open(output, 'r') as src:
                 self.text = src.read().strip()
             return
-        text = extract_text(input)
-        with open(output, 'w') as out:
-            out.write(text)
-        self.text = text
+
+        try:
+            text = extract_text(input)
+            with open(output, 'w') as out:
+                out.write(text)
+            self.text = text
+        except:
+            self.text = 'parse error'
 
     def parse_dates(self, cache_dir):
         input = f'{cache_dir}/text/{self.checksum}.txt'

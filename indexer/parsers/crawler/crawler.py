@@ -82,13 +82,16 @@ class Crawler:
                 doc.title = file.read().strip()
                 return
 
-        await self.browser.page.goto(doc.url)
+        try:
+            await self.browser.page.goto(doc.url)
 
-        title = await self.browser.page.title()
-        doc.title = title
+            title = await self.browser.page.title()
+            doc.title = title
 
-        with open(cache_filename, 'w') as out:
-            out.write(title)
+            with open(cache_filename, 'w') as out:
+                out.write(title)
+        except:
+            doc.title = ''
 
     async def crawl_for_download(self, doc: document.Doc):
         download_url_filename = f'{self.cache_dir}/download_urls/{doc.checksum}.txt'
