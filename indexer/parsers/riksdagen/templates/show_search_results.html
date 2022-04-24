@@ -10,6 +10,7 @@
 
             {% if page._source.title %}
             <h3>
+                
                 <a href = {{ url_for("open_file_on_filesystem", relative_path = page._source.relative_path_to_file) }} >
                 {% if page.highlight.title %}
                     {{ page.highlight.title.0|safe }}
@@ -22,6 +23,7 @@
 
 
             <a href = {{ url_for("open_file_on_filesystem", relative_path = page._source.relative_path_to_file) }} >
+                <a href={{page._source.dok_url}} > {{page._source.titel}}</a>
                 {% if page.highlight.relative_path_to_file %}
                     {{ page.highlight.relative_path_to_file.0|safe }}
                 {% else %}

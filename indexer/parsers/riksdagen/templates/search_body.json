@@ -95,6 +95,7 @@
     },
     "highlight": {
       "require_field_match": false,
+      "max_analyzed_offset" : "500000",
       "fields": {
         "title": {"number_of_fragments" : 0, "pre_tags": ["<em>"], "post_tags": ["</em>"]},
         "relative_path_to_file": {"number_of_fragments" : 0, "pre_tags": ["<b>"], "post_tags": ["</b>"]},

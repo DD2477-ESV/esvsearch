@@ -5,17 +5,11 @@ Code modified from : https://github.com/alexander-marquardt/es_local_indexer
 from flask import Flask, request, render_template, send_from_directory
 from elasticsearch import Elasticsearch
 
-### TODO: Körde i elasticsearch 7.16.
-### {"es.indices.id_field_data.enabled" : true} kan behöva posta detta till localhost:9200/_cluster/settings
-### Ändra path nedan
-
-INDEX_NAME = "docs"
-DOC_PATH = "C:\\Users\\Teo\\Desktop\\Plugg\\Test\\2018-2021"
+INDEX_NAME = "riksdagen"
+DOC_PATH = "G:\\Riksdagsdata\\Statliga_utredningar"
 
 es = Elasticsearch("http://localhost:9200")
 app = Flask(__name__)
-
-
 
 @app.route('/')
 def my_form():
@@ -25,9 +19,6 @@ def my_form():
                                      search_text='',
                                      input_files_root=app.config['input_files_root'],
                                      index_name=app.config['index_name'])
-    # return presentation.show_home_page(
-        # index_name=app.config['index_name'],
-        # input_files_root=app.config['input_files_root'])
 
 
 @app.route('/', methods=['POST'])
@@ -38,30 +29,26 @@ def my_form_post():
     search_text = request.form['search_text'].lower()
 
     try:
-        # If the post contains fields that indicates we are paging, then include "search_after"
-        # in the json that is sent to Elasticsearch.
         last_score = request.form['last_score']
         last_id = request.form['last_id']
         optional_search_after = '"search_after": [%s, "%s"],' % (last_score, last_id)
     except:
-        # If any of the above fields are not POSTED, then don't do a "search_after"  (not paging)
         optional_search_after = ''
 
+
+    
     body = render_template("search_body.json",
                            query_string=search_text,
-                           optional_search_after=optional_search_after)
+                           optional_search_after=optional_search_after) # Skapa en query från .json-fil
 
-    search_result = es.search(index=app.config['index_name'], body=body)
-    # generated_html = presentation.present_results(
-    #     search_text=search_text,
-    #     index_name=app.config['index_name'],
-    #     input_files_root=app.config['input_files_root'],
-    #     list_of_results=search_result['hits']['hits'])
+    search_result = es.search(index=app.config['index_name'], body=body)  # Söka med denna query i angivet index
+    all_hits = search_result["hits"]["hits"] # Få fram alla funna dokument
+    
     generated_html = render_template('show_search_results.html',
                                     search_text=search_text,
                                     input_files_root=app.config['input_files_root'],
                                     index_name=app.config['index_name'],
-                                    pages=search_result['hits']['hits'])
+                                    pages=all_hits)
 
     return generated_html
 
