@@ -149,3 +149,17 @@ $ curl -X "POST" "http://localhost:9200/arbetsformedlingen/_search" \
   ]
 }'
 ```
+
+### Index BRÅ
+
+Follows a similar install procedure to arbetsförmedlingen. To index, run the following command
+
+```bash
+$ python indexer/main.py bra /tmp/bra
+```
+
+Index available here
+
+```bash
+$ curl "http://localhost:9200/bra/_stats"
+```

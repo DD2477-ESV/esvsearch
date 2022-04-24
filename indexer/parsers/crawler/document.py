@@ -1,9 +1,14 @@
 import hashlib
 import pathlib
+import certifi
 import requests
 from . import dates
 from dateutil.parser import parse
 from pdfminer.high_level import extract_text
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
+
+
+USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:99.0) Gecko/20100101 Firefox/99.0'
 
 
 class Doc:
@@ -45,8 +50,21 @@ class Doc:
         if self.download_url is None:
             return
 
+        # For some reason my python installation is having a real fuzz with the
+        # ssl certificate trust validation. Disabling ssl verification is obviously
+        # super bad practice. But i've spent hours recompiling my python install
+        # and it's just not working, so disabling ssl. This is just a uni project
+        # soooo i don't care :)
+        should_verify = False
+        requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
         try:
-            with requests.get(self.download_url, stream=True) as r:
+            headers = {'User-Agent': USER_AGENT}
+            with requests.get(
+                self.download_url,
+                stream=True,
+                headers=headers,
+                verify=should_verify,
+            ) as r:
                 r.raise_for_status()
                 with open(output_filename, 'wb') as f:
                     for chunk in r.iter_content(chunk_size=8192):
@@ -64,10 +82,14 @@ class Doc:
             with open(output, 'r') as src:
                 self.text = src.read().strip()
             return
-        text = extract_text(input)
-        with open(output, 'w') as out:
-            out.write(text)
-        self.text = text
+
+        try:
+            text = extract_text(input)
+            with open(output, 'w') as out:
+                out.write(text)
+            self.text = text
+        except:
+            self.text = 'parse error'
 
     def parse_dates(self, cache_dir):
         input = f'{cache_dir}/text/{self.checksum}.txt'
