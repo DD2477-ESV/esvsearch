@@ -1,7 +1,7 @@
 import sys
 from utils import arguments
 from parsers import constants
-from parsers import riksdagen
+from parsers import riksdagen, arbetsformedlingen
 
 
 def main():
@@ -10,6 +10,8 @@ def main():
 
     if args.parser == constants.RIKSDAGEN:
         riksdagen.parse(args)
+    elif args.parser == constants.ARBETSFORMEDLINGEN:
+        arbetsformedlingen.parse(args)
 
 
 if __name__ == '__main__':
