@@ -1,20 +1,20 @@
-"""
-Code modified from : https://github.com/alexander-marquardt/es_local_indexer
-"""
-
-import os, re
-from elasticsearch import Elasticsearch
-import index_definitions
+from .. import constants
+import os
+import re
+import codecs
+from xml.dom import minidom
 from bs4 import BeautifulSoup
 from bs4.element import Comment
-import codecs
+from . import index_definitions
+from elasticsearch import Elasticsearch
 
-INDEX_NAME = "docs"
-DOC_PATH = "C:\\Users\\Teo\\Desktop\\Plugg\\Test\\2018-2021"
-es = Elasticsearch("http://localhost:9200")
+
+es = Elasticsearch(constants.ELASTICSEARCH_ENDPOINT)
+
 
 def extract_fields_from_html(html_body):
-    """Receives html and removes styles and scripts
+    """Receives html and removes styles and scripts.
+
     (could be easily modified to remove more if necessary).
     Keyword arguments:
     html_body -- the html that we will be cleaning up
@@ -56,19 +56,36 @@ def walk_and_index_all_files(input_files_root, index_name):
 
     for root, dirs, files in os.walk(input_files_root):
         for file in files:
-            if file.endswith(".html"):
+            if file.endswith(".xml"):
                 rel_dir = os.path.relpath(root, input_files_root)
                 relative_path_to_file = os.path.join(rel_dir, file)
                 print("indexing %s from %s" % (index_name, relative_path_to_file))
 
                 abs_file_path = os.path.join(input_files_root, relative_path_to_file)
-                with codecs.open(abs_file_path, encoding='utf-8') as infile:
-                # infile = open(abs_file_path)
-                    html_from_file = infile.read()
-                    json_to_index = extract_fields_from_html(html_from_file)
-                    json_to_index['relative_path_to_file'] = relative_path_to_file
-                    es.index(index=index_name, id=None,
-                            body=json_to_index)
+                with open(abs_file_path) as infile:
+                    content = infile.read()
+                    soup = BeautifulSoup(content, "xml")
+                    html = soup.find_all('html')[0].string
+
+                    json_to_index = extract_fields_from_html(html)
+
+                    id = soup.find_all('dok_id')[0].string
+                    json_to_index['id'] = id
+
+                    organ = soup.find_all('organ')[0].string
+                    json_to_index['organ'] = organ
+
+                    subtyp = soup.find_all('subtyp')[0].string
+                    json_to_index['subtyp'] = subtyp
+
+                    typ = soup.find_all('typ')[0].string
+                    json_to_index['typ'] = typ
+
+                    es.index(
+                        index=index_name,
+                        id=id,
+                        body=json_to_index
+                    )
 
 
 def configure_index(index_name):
@@ -79,8 +96,9 @@ def configure_index(index_name):
     """
     index_exists = es.indices.exists(index=index_name)
     if index_exists:
-        print("Index: %s already exists. Would you like to delete, append, or abort" % index_name)
-        answer = input("Type one of 'overwrite', 'append' or 'abort': ")
+        # print("Index: %s already exists. Would you like to delete, append, or abort" % index_name)
+        # answer = input("Type one of 'overwrite', 'append' or 'abort': ")
+        answer = 'overwrite'
         if answer == "overwrite":
             es.indices.delete(index=index_name, ignore=[400, 404])
             index_exists = False
@@ -94,20 +112,3 @@ def configure_index(index_name):
             'mappings': index_definitions.INDEX_MAPPINGS
         }
         es.indices.create(index=index_name, body=request_body)
-
-
-def main():
-    """Get the command line arguments, and start indexing documents into Elasticsearch
-    """
-    # parsed_args = common.parse_arguments()
-    # base_dir = parsed_args.path
-    # index_name = parsed_args.index_name
-    base_dir = DOC_PATH
-    index_name = INDEX_NAME
-    configure_index(index_name)
-
-    walk_and_index_all_files(base_dir, index_name)
-
-
-if __name__ == '__main__':
-    main()
