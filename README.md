@@ -163,3 +163,51 @@ Index available here
 ```bash
 $ curl "http://localhost:9200/bra/_stats"
 ```
+
+### Index MSB
+
+```bash
+$ python indexer/main.py msb /tmp/msb
+```
+
+Index available here
+
+```bash
+$ curl "http://localhost:9200/msb/_stats"
+```
+
+### Index FHM
+
+```bash
+$ python indexer/main.py fhm /tmp/fhm
+```
+
+Index available here
+
+```bash
+$ curl "http://localhost:9200/fhm/_stats"
+```
+
+### Index Försäkringskassan
+
+```bash
+$ python indexer/main.py forsakringskassan /tmp/forsakringskassan
+```
+
+Index available here
+
+```bash
+$ curl "http://localhost:9200/forsakringskassan/_stats"
+```
+
+### Index ESV
+
+```bash
+$ python indexer/main.py esv /tmp/esv
+```
+
+Index available here
+
+```bash
+$ curl "http://localhost:9200/esv/_stats"
+```

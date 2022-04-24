@@ -3,6 +3,8 @@ import pathlib
 import certifi
 import requests
 from . import dates
+from . import console
+from PyPDF2 import PdfFileReader
 from dateutil.parser import parse
 from pdfminer.high_level import extract_text
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
@@ -84,11 +86,21 @@ class Doc:
             return
 
         try:
-            text = extract_text(input)
-            with open(output, 'w') as out:
-                out.write(text)
-            self.text = text
-        except:
+            with open(input, 'rb') as src:
+                text = extract_text(
+                    src,
+                    password='',
+                    page_numbers=None,
+                    maxpages=0,
+                    caching=True,
+                    codec='utf-8',
+                    laparams=None
+                )
+                with open(output, 'w') as out:
+                    out.write(text)
+                self.text = text
+        except Exception as e:
+            print(e)
             self.text = 'parse error'
 
     def parse_dates(self, cache_dir):
@@ -119,3 +131,31 @@ class Doc:
                 out.write(date)
 
         self.date = date
+
+    def parse_title(self, cache_dir):
+        input = f'{cache_dir}/pdfs/{self.checksum}.pdf'
+        output = f'{cache_dir}/titles/{self.checksum}.txt'
+
+        if not pathlib.Path(input).exists():
+            return
+
+        if pathlib.Path(output).exists():
+            with open(output, 'r') as src:
+                self.title = src.read().strip()
+            return
+
+        with open(input, 'rb') as src:
+            try:
+                docinfo = PdfFileReader(src).getDocumentInfo()
+                if '/Title' not in docinfo:
+                    return
+
+                title = docinfo['/Title']
+                with open(output, 'w') as out:
+                    out.write(title)
+            except Exception as e:
+                print(e)
+                return
+
+
+        self.title = title

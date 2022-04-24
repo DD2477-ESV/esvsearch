@@ -1,7 +1,15 @@
 import sys
 from utils import arguments
 from parsers import constants
-from parsers import riksdagen, arbetsformedlingen, bra
+from parsers import (
+    riksdagen,
+    arbetsformedlingen,
+    bra,
+    msb,
+    fhm,
+    forsakringskassan,
+    esv,
+)
 
 
 def main():
@@ -14,6 +22,14 @@ def main():
         arbetsformedlingen.parse(args)
     elif args.parser == constants.BRA:
         bra.parse(args)
+    elif args.parser == constants.MSB:
+        msb.parse(args)
+    elif args.parser == constants.FHM:
+        fhm.parse(args)
+    elif args.parser == constants.FORSAKRINGSKASSAN:
+        forsakringskassan.parse(args)
+    elif args.parser == constants.ESV:
+        esv.parse(args)
 
 
 if __name__ == '__main__':

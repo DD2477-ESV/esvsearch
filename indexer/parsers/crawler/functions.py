@@ -80,7 +80,11 @@ def fetch_pdfs(
 
         for checksum in docs:
             doc = docs[checksum]
-            asyncio.get_event_loop().run_until_complete(c.crawl_for_download(doc))
+            try:
+                asyncio.get_event_loop().run_until_complete(c.crawl_for_download(doc))
+            except Exception as e:
+                progress.update(task1, advance=1)
+                continue
 
             if doc.is_downloaded(cache_dir):
                 progress.update(task1, advance=1)
@@ -107,6 +111,16 @@ def parse_dates(docs, cache_dir):
         for checksum in docs:
             doc = docs[checksum]
             doc.parse_dates(cache_dir)
+            progress.update(task1, advance=1)
+
+
+def parse_titles_from_pdf(docs, cache_dir):
+    with Progress() as progress:
+        task1 = progress.add_task('Parsing Titles from PDFS...', total=len(docs))
+
+        for checksum in docs:
+            doc = docs[checksum]
+            doc.parse_title(cache_dir)
             progress.update(task1, advance=1)
 
 

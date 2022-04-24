@@ -13,3 +13,5 @@ def is_date(string, fuzzy=False):
         return True
     except ValueError:
         return False
+    except OverflowError:
+        return False

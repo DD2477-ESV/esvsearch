@@ -36,7 +36,14 @@ class Crawler:
     async def add_urls_from_current_page(self):
         found_new_links = False
 
+        try:
+            await self.browser.page.waitForSelector(self.url_result_query_selector, timeout=2000)
+        except Exception as e:
+            print(e)
+            return
+
         elements = await self.browser.page.querySelectorAll(self.url_result_query_selector)
+
         for element in elements:
             href = await self.browser.page.evaluate('(element) => element.href', element)
             doc = document.Doc(href)
@@ -50,7 +57,12 @@ class Crawler:
 
     async def next_page_and_wait(self):
         btn = None
+        max_wait = 20
+        waited = 0
         while btn is None:
+            waited += 1
+            if waited > max_wait:
+                return
             btn = await self.browser.page.querySelector(self.next_btn_query_selector)
             time.sleep(.1)
 
@@ -83,14 +95,16 @@ class Crawler:
                 return
 
         try:
-            await self.browser.page.goto(doc.url)
+            await self.browser.page.goto(doc.url, waitUntil='networkidle2')
+            await self.browser.page.waitForSelector('title', timeout=2000)
 
             title = await self.browser.page.title()
             doc.title = title
 
             with open(cache_filename, 'w') as out:
                 out.write(title)
-        except:
+        except Exception as e:
+            print(e)
             doc.title = ''
 
     async def crawl_for_download(self, doc: document.Doc):
@@ -100,14 +114,18 @@ class Crawler:
                 doc.download_url = file.read().strip()
                 return
 
-        await self.browser.page.goto(doc.url)
+        if self.download_btn_query_selector is None:
+            # the doc.url is also the download_url
+            doc.download_url = doc.url
+        else:
+            await self.browser.page.goto(doc.url)
 
-        element = await self.browser.page.querySelector(self.download_btn_query_selector)
-        if element is None:
-            return
+            element = await self.browser.page.querySelector(self.download_btn_query_selector)
+            if element is None:
+                return
 
-        url = await self.browser.page.evaluate('(element) => element.href', element)
-        doc.download_url = url
+            url = await self.browser.page.evaluate('(element) => element.href', element)
+            doc.download_url = url
 
         with open(download_url_filename, 'w') as out:
             out.write(doc.download_url)
