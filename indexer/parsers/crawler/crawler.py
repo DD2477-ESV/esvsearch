@@ -36,7 +36,9 @@ class Crawler:
     async def add_urls_from_current_page(self):
         found_new_links = False
 
+        await self.browser.page.waitForSelector(self.url_result_query_selector, timeout=2000)
         elements = await self.browser.page.querySelectorAll(self.url_result_query_selector)
+
         for element in elements:
             href = await self.browser.page.evaluate('(element) => element.href', element)
             doc = document.Doc(href)

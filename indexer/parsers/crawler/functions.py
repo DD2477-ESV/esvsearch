@@ -80,7 +80,12 @@ def fetch_pdfs(
 
         for checksum in docs:
             doc = docs[checksum]
-            asyncio.get_event_loop().run_until_complete(c.crawl_for_download(doc))
+            try:
+                asyncio.get_event_loop().run_until_complete(c.crawl_for_download(doc))
+            except Exception as e:
+                console.error(e)
+                progress.update(task1, advance=1)
+                continue
 
             if doc.is_downloaded(cache_dir):
                 progress.update(task1, advance=1)

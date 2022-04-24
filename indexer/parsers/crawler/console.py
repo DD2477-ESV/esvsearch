@@ -17,6 +17,11 @@ def log(var, end=None):
     sys.stdout.flush()
 
 
+def error(msg):
+    sys.stderr.write(msg)
+    sys.stdout.flush()
+
+
 def eol():
     """Print end of line character."""
     log('')

@@ -3,6 +3,7 @@ import pathlib
 import certifi
 import requests
 from . import dates
+from . import console
 from dateutil.parser import parse
 from pdfminer.high_level import extract_text
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
@@ -84,11 +85,21 @@ class Doc:
             return
 
         try:
-            text = extract_text(input)
-            with open(output, 'w') as out:
-                out.write(text)
-            self.text = text
-        except:
+            with open(input, 'rb') as src:
+                text = extract_text(
+                    src,
+                    password='',
+                    page_numbers=None,
+                    maxpages=0,
+                    caching=True,
+                    codec='utf-8',
+                    laparams=None
+                )
+                with open(output, 'w') as out:
+                    out.write(text)
+                self.text = text
+        except Exception as e:
+            console.error(e)
             self.text = 'parse error'
 
     def parse_dates(self, cache_dir):
