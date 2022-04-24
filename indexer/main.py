@@ -8,6 +8,7 @@ from parsers import (
     msb,
     fhm,
     forsakringskassan,
+    esv,
 )
 
 
@@ -27,6 +28,8 @@ def main():
         fhm.parse(args)
     elif args.parser == constants.FORSAKRINGSKASSAN:
         forsakringskassan.parse(args)
+    elif args.parser == constants.ESV:
+        esv.parse(args)
 
 
 if __name__ == '__main__':
