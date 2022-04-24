@@ -14,9 +14,20 @@ def create_cache_dir(cache_dir):
     cache.create_cache(cache_dir)
 
 
-def crawl_site(cache_dir, root_url):
+def crawl_site(
+    cache_dir,
+    root_url,
+    url_result_query_selector,
+    next_btn_query_selector,
+    download_btn_query_selector
+):
     console.log('fetching docs')
-    c = crawler.Crawler(cache_dir)
+    c = crawler.Crawler(
+        cache_dir,
+        url_result_query_selector,
+        next_btn_query_selector,
+        download_btn_query_selector
+    )
 
     asyncio.get_event_loop().run_until_complete(c.start_browser())
     asyncio.get_event_loop().run_until_complete(c.crawl(root_url))
@@ -25,8 +36,19 @@ def crawl_site(cache_dir, root_url):
     return c.documents
 
 
-def fetch_titles(docs, cache_dir):
-    c = crawler.Crawler(cache_dir)
+def fetch_titles(
+    docs,
+    cache_dir,
+    url_result_query_selector,
+    next_btn_query_selector,
+    download_btn_query_selector
+):
+    c = crawler.Crawler(
+        cache_dir,
+        url_result_query_selector,
+        next_btn_query_selector,
+        download_btn_query_selector
+    )
     asyncio.get_event_loop().run_until_complete(c.start_browser())
 
     with Progress() as progress:
@@ -38,8 +60,19 @@ def fetch_titles(docs, cache_dir):
             progress.update(task1, advance=1)
 
 
-def fetch_pdfs(docs, cache_dir):
-    c = crawler.Crawler(cache_dir)
+def fetch_pdfs(
+    docs,
+    cache_dir,
+    url_result_query_selector,
+    next_btn_query_selector,
+    download_btn_query_selector
+):
+    c = crawler.Crawler(
+        cache_dir,
+        url_result_query_selector,
+        next_btn_query_selector,
+        download_btn_query_selector
+    )
     asyncio.get_event_loop().run_until_complete(c.start_browser())
 
     with Progress() as progress:

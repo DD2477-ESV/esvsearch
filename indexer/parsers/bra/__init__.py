@@ -2,11 +2,11 @@ from ..crawler import functions
 from ..constants import ELASTICSEARCH_ENDPOINT
 
 
-ROOT_URL = 'https://arbetsformedlingen.se/statistik/analyser-och-prognoser'
-INDEX_NAME = 'arbetsformedlingen'
-URL_RESULT_QUERY_SELECTOR = '.af-report-result__item * a'
-NEXT_BTN_QUERY_SELECTOR = '[aria-label="Nästa sida"]'
-DOWNLOAD_BTN_QUERY_SELECTOR = '[download]'
+ROOT_URL = 'https://bra.se/publikationer.html'
+INDEX_NAME = 'bra'
+URL_RESULT_QUERY_SELECTOR = '.search-hit-left > a'
+NEXT_BTN_QUERY_SELECTOR = '.next'
+DOWNLOAD_BTN_QUERY_SELECTOR = '.sv-font-pdf-link > a'
 
 
 def parse(args):

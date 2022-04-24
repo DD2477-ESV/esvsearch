@@ -6,12 +6,24 @@ from . import browser
 from . import document
 
 
+NEXT_BUTTON_CLICK_LIMIT = 500
+
+
 class Crawler:
 
-    def __init__(self, cache_dir) -> None:
+    def __init__(
+        self,
+        cache_dir,
+        url_result_query_selector,
+        next_btn_query_selector,
+        download_btn_query_selector,
+    ) -> None:
         self.browser = None
         self.cache_dir = cache_dir
         self.documents = {}
+        self.url_result_query_selector = url_result_query_selector
+        self.next_btn_query_selector = next_btn_query_selector
+        self.download_btn_query_selector = download_btn_query_selector
 
     async def start_browser(self):
         self.browser = browser.Browser()
@@ -19,11 +31,12 @@ class Crawler:
 
     async def route_to(self, url):
         await self.browser.page.goto(url)
+        time.sleep(.1)
 
     async def add_urls_from_current_page(self):
         found_new_links = False
 
-        elements = await self.browser.page.querySelectorAll('.af-report-result__item * a')
+        elements = await self.browser.page.querySelectorAll(self.url_result_query_selector)
         for element in elements:
             href = await self.browser.page.evaluate('(element) => element.href', element)
             doc = document.Doc(href)
@@ -36,17 +49,26 @@ class Crawler:
         return found_new_links
 
     async def next_page_and_wait(self):
-        btn = await self.browser.page.querySelector('[aria-label="Nästa sida"]')
+        btn = None
+        while btn is None:
+            btn = await self.browser.page.querySelector(self.next_btn_query_selector)
+            time.sleep(.1)
+
         await btn.click()
-        time.sleep(1)
+        time.sleep(2)
 
     async def crawl(self, root_url):
         await self.route_to(root_url)
         await self.add_urls_from_current_page()
 
         console.log('crawling src', end='')
+        pages = 0
         while True:
             console.log('.', end='')
+            pages += 1
+            if pages > NEXT_BUTTON_CLICK_LIMIT:
+                break
+
             await self.next_page_and_wait()
             found_new_links = await self.add_urls_from_current_page()
             if not found_new_links:
@@ -77,7 +99,7 @@ class Crawler:
 
         await self.browser.page.goto(doc.url)
 
-        element = await self.browser.page.querySelector('[download]')
+        element = await self.browser.page.querySelector(self.download_btn_query_selector)
         if element is None:
             return
 
