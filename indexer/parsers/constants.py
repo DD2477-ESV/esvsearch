@@ -1,10 +1,18 @@
 
 
-AVAILABLE_PARSERS = ['riksdagen', 'arbetsformedlingen', 'bra', 'msb', 'fhm']
+AVAILABLE_PARSERS = [
+    'riksdagen',
+    'arbetsformedlingen',
+    'bra',
+    'msb',
+    'fhm',
+    'forsakringskassan'
+]
 RIKSDAGEN = AVAILABLE_PARSERS[0]
 ARBETSFORMEDLINGEN = AVAILABLE_PARSERS[1]
 BRA = AVAILABLE_PARSERS[2]
 MSB = AVAILABLE_PARSERS[3]
 FHM = AVAILABLE_PARSERS[4]
+FORSAKRINGSKASSAN = AVAILABLE_PARSERS[5]
 
 ELASTICSEARCH_ENDPOINT = 'http://localhost:9200'
