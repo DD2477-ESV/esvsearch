@@ -66,8 +66,11 @@ class Crawler:
             btn = await self.browser.page.querySelector(self.next_btn_query_selector)
             time.sleep(.1)
 
-        await btn.click()
-        time.sleep(2)
+        try:
+            await btn.click()
+            time.sleep(2)
+        except Exception as e:
+            print(e)
 
     async def crawl(self, root_url):
         await self.route_to(root_url)

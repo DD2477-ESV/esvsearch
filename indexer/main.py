@@ -11,6 +11,7 @@ from parsers import (
     esv,
     polisen,
     pts,
+    fi,
 )
 
 
@@ -36,6 +37,8 @@ def main():
         polisen.parse(args)
     elif args.parser == constants.PTS:
         pts.parse(args)
+    elif args.parser == constants.FI:
+        fi.parse(args)
 
 
 if __name__ == '__main__':
