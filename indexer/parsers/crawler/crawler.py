@@ -34,6 +34,7 @@ class Crawler:
         time.sleep(.1)
 
     async def press_button(self, query_selector):
+        await self.browser.page.waitForSelector(query_selector)
         btn = await self.browser.page.querySelector(query_selector)
         time.sleep(.1)
 
@@ -56,6 +57,8 @@ class Crawler:
 
         for element in elements:
             href = await self.browser.page.evaluate('(element) => element.href', element)
+            if href is None:
+                continue
             doc = document.Doc(href)
 
             if doc.checksum not in self.documents:
@@ -82,8 +85,11 @@ class Crawler:
         except Exception as e:
             print(e)
 
-    async def crawl(self, root_url):
+    async def crawl(self, root_url, press_button_after_load=None):
         await self.route_to(root_url)
+        if press_button_after_load:
+            time.sleep(2)
+            await self.press_button(press_button_after_load)
         await self.add_urls_from_current_page()
 
         console.log('crawling src', end='')

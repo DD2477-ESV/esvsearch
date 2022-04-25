@@ -31,10 +31,7 @@ def crawl_site(
     )
 
     asyncio.get_event_loop().run_until_complete(c.start_browser())
-    if btn_press_after_loading_query_selector:
-        asyncio.get_event_loop().run_until_complete(c.press_button(btn_press_after_loading_query_selector))
-
-    asyncio.get_event_loop().run_until_complete(c.crawl(root_url))
+    asyncio.get_event_loop().run_until_complete(c.crawl(root_url, btn_press_after_loading_query_selector))
 
     console.log(f'found {len(c.documents)} docs')
     return c.documents
