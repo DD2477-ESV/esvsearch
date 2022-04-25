@@ -14,6 +14,7 @@ from parsers import (
     fi,
     riksbanken,
     foi,
+    socialstyrelsen,
 )
 
 
@@ -45,6 +46,8 @@ def main():
         riksbanken.parse(args)
     elif args.parser == constants.FOI:
         foi.parse(args)
+    elif args.parser == constants.SOCIALSTYRELSEN:
+        socialstyrelsen.parse(args)
 
 
 if __name__ == '__main__':
