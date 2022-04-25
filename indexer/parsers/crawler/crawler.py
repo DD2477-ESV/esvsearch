@@ -6,7 +6,7 @@ from . import browser
 from . import document
 
 
-NEXT_BUTTON_CLICK_LIMIT = 500
+NEXT_BUTTON_CLICK_LIMIT = 1000
 
 
 class Crawler:
@@ -32,6 +32,16 @@ class Crawler:
     async def route_to(self, url):
         await self.browser.page.goto(url)
         time.sleep(.1)
+
+    async def press_button(self, query_selector):
+        btn = await self.browser.page.querySelector(query_selector)
+        time.sleep(.1)
+
+        try:
+            await btn.click()
+            time.sleep(2)
+        except Exception as e:
+            print(e)
 
     async def add_urls_from_current_page(self):
         found_new_links = False

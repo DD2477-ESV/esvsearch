@@ -19,7 +19,8 @@ def crawl_site(
     root_url,
     url_result_query_selector,
     next_btn_query_selector,
-    download_btn_query_selector
+    download_btn_query_selector,
+    btn_press_after_loading_query_selector=None
 ):
     console.log('fetching docs')
     c = crawler.Crawler(
@@ -30,6 +31,9 @@ def crawl_site(
     )
 
     asyncio.get_event_loop().run_until_complete(c.start_browser())
+    if btn_press_after_loading_query_selector:
+        asyncio.get_event_loop().run_until_complete(c.press_button(btn_press_after_loading_query_selector))
+
     asyncio.get_event_loop().run_until_complete(c.crawl(root_url))
 
     console.log(f'found {len(c.documents)} docs')

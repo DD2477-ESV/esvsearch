@@ -13,6 +13,7 @@ from parsers import (
     pts,
     fi,
     riksbanken,
+    foi,
 )
 
 
@@ -42,6 +43,8 @@ def main():
         fi.parse(args)
     elif args.parser == constants.RIKSBANKEN:
         riksbanken.parse(args)
+    elif args.parser == constants.FOI:
+        foi.parse(args)
 
 
 if __name__ == '__main__':
