@@ -10,6 +10,7 @@ from parsers import (
     forsakringskassan,
     esv,
     polisen,
+    pts,
 )
 
 
@@ -33,6 +34,8 @@ def main():
         esv.parse(args)
     elif args.parser == constants.POLISEN:
         polisen.parse(args)
+    elif args.parser == constants.PTS:
+        pts.parse(args)
 
 
 if __name__ == '__main__':
