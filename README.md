@@ -211,3 +211,75 @@ Index available here
 ```bash
 $ curl "http://localhost:9200/esv/_stats"
 ```
+
+### Index Polisen
+
+```bash
+$ python indexer/main.py polisen /tmp/polisen
+```
+
+Index available here
+
+```bash
+$ curl "http://localhost:9200/polisen/_stats"
+```
+
+### Index PTS
+
+```bash
+$ python indexer/main.py pts /tmp/pts
+```
+
+Index available here
+
+```bash
+$ curl "http://localhost:9200/pts/_stats"
+```
+
+### Index FI
+
+```bash
+$ python indexer/main.py fi /tmp/fi
+```
+
+Index available here
+
+```bash
+$ curl "http://localhost:9200/fi/_stats"
+```
+
+### Index Riksbanken
+
+```bash
+$ python indexer/main.py riksbanken /tmp/riksbanken
+```
+
+Index available here
+
+```bash
+$ curl "http://localhost:9200/riksbanken/_stats"
+```
+
+### Index FOI
+
+```bash
+$ python indexer/main.py foi /tmp/foi
+```
+
+Index available here
+
+```bash
+$ curl "http://localhost:9200/foi/_stats"
+```
+
+### Index Socialstyrelsen
+
+```bash
+$ python indexer/main.py socialstyrelsen /tmp/socialstyrelsen
+```
+
+Index available here
+
+```bash
+$ curl "http://localhost:9200/socialstyrelsen/_stats"
+```
