@@ -9,6 +9,12 @@ from parsers import (
     fhm,
     forsakringskassan,
     esv,
+    polisen,
+    pts,
+    fi,
+    riksbanken,
+    foi,
+    socialstyrelsen,
 )
 
 
@@ -30,6 +36,18 @@ def main():
         forsakringskassan.parse(args)
     elif args.parser == constants.ESV:
         esv.parse(args)
+    elif args.parser == constants.POLISEN:
+        polisen.parse(args)
+    elif args.parser == constants.PTS:
+        pts.parse(args)
+    elif args.parser == constants.FI:
+        fi.parse(args)
+    elif args.parser == constants.RIKSBANKEN:
+        riksbanken.parse(args)
+    elif args.parser == constants.FOI:
+        foi.parse(args)
+    elif args.parser == constants.SOCIALSTYRELSEN:
+        socialstyrelsen.parse(args)
 
 
 if __name__ == '__main__':

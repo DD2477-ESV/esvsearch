@@ -86,6 +86,7 @@ class Doc:
             return
 
         try:
+            print(f'parsing text in {self.checksum}')
             with open(input, 'rb') as src:
                 text = extract_text(
                     src,

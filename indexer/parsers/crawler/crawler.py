@@ -6,7 +6,7 @@ from . import browser
 from . import document
 
 
-NEXT_BUTTON_CLICK_LIMIT = 500
+NEXT_BUTTON_CLICK_LIMIT = 1000
 
 
 class Crawler:
@@ -33,6 +33,17 @@ class Crawler:
         await self.browser.page.goto(url)
         time.sleep(.1)
 
+    async def press_button(self, query_selector):
+        await self.browser.page.waitForSelector(query_selector)
+        btn = await self.browser.page.querySelector(query_selector)
+        time.sleep(.1)
+
+        try:
+            await btn.click()
+            time.sleep(2)
+        except Exception as e:
+            print(e)
+
     async def add_urls_from_current_page(self):
         found_new_links = False
 
@@ -46,6 +57,8 @@ class Crawler:
 
         for element in elements:
             href = await self.browser.page.evaluate('(element) => element.href', element)
+            if href is None:
+                continue
             doc = document.Doc(href)
 
             if doc.checksum not in self.documents:
@@ -66,11 +79,17 @@ class Crawler:
             btn = await self.browser.page.querySelector(self.next_btn_query_selector)
             time.sleep(.1)
 
-        await btn.click()
-        time.sleep(2)
+        try:
+            await btn.click()
+            time.sleep(2)
+        except Exception as e:
+            print(e)
 
-    async def crawl(self, root_url):
+    async def crawl(self, root_url, press_button_after_load=None):
         await self.route_to(root_url)
+        if press_button_after_load:
+            time.sleep(2)
+            await self.press_button(press_button_after_load)
         await self.add_urls_from_current_page()
 
         console.log('crawling src', end='')
