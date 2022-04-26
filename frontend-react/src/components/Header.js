@@ -5,7 +5,7 @@ import "./../styles/HeaderStyles.css"
 const Header = () => {
     return (
     <div className="main-header">
-        <h1 id="header-logo">Placeholder header</h1>
+        <h1 id="header-logo">ESV</h1>
     </div>
     );
 };
