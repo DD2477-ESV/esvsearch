@@ -39,7 +39,7 @@ INDEX_MAPPINGS = {
         },
         'date': {
             'type': 'date',
-            'null_value': '',
+            'ignore_malformed': True,
         },
         'title': {
             'type': 'text',
