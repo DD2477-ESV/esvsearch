@@ -3,7 +3,7 @@
 }
 
 .all-results-container {
-    width: 60%;
+    width: 70%;
     margin: 0 auto;
     margin-top: 8px;
 }
@@ -13,7 +13,7 @@
     margin-bottom: 4px;
 }
 
-.single-result-container-open-button {
+.new-search-button {
     border: none;
 
     margin-bottom: 4px;
@@ -22,24 +22,24 @@
     border-radius: 2px;
     color: whitesmoke;
     text-align: center;
-    padding: 10px 12px;
+    padding: 12px 14px;
     text-decoration: none;
     font-weight: bold;
     font-size: 17px;
 
 }
 
-.single-result-container-open-button:hover {
+.new-search-button:hover {
     background-color: #4f9bda;
 }
 
-.single-result-container-open-button:active {
+.new-search-button:active {
     background-color: #1c85db;
 
 }
 
 
 .pdf-in-browser {
-    width:600px; 
+    width:700px; 
     height:800px;
 }

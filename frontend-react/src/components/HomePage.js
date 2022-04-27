@@ -52,7 +52,7 @@ const HomePage = () => {
 				<div className="result-page-container">
 					<h2>{ "Din sökning gav " + results.length + " resultat"}</h2>
 					<ResultPage documents={results} />
-					<button onClick={newSearchClicked}>Ny sökning</button>
+					<button onClick={newSearchClicked} className="new-search-button">Ny sökning</button>
 				</div>
 			) : (
 				<div className="topnav">

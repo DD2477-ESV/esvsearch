@@ -52,3 +52,31 @@ body {
       background-color: #06243d;
   }
   
+  .single-result-container-open-button {
+    border: none;
+
+    margin-bottom: 4px;
+    background-color: #79add8;
+    border: 2px solid #4a9adb;
+    border-radius: 2px;
+    color: whitesmoke;
+    text-align: center;
+    padding: 10px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 17px;
+
+}
+
+.open-button-specific {
+    margin-right: 4px;
+}
+
+.single-result-container-open-button:hover {
+    background-color: #4f9bda;
+}
+
+.single-result-container-open-button:active {
+    background-color: #1c85db;
+
+}

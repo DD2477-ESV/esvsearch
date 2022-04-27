@@ -28,10 +28,18 @@ const ResultPage = (props) => {
 							<button
 								value={doc.url}
 								onClick={documentClicked}
-								className="single-result-container-open-button"
+								className="single-result-container-open-button open-button-specific"
 							>
-								{docToView === doc.url ? "Stäng" : "Öppna"}
+								{docToView === doc.url ? "Stäng" : "Öppna här"}
 							</button>
+							<a href={doc.url} target="_blank">
+								<button
+									value={doc.url}
+									className="single-result-container-open-button"
+								>
+									{"Ladda ner"}
+								</button>
+							</a>
 							{docToView === doc.url ? (
 								<div className={"pdf-to-view"}>
 									<iframe
