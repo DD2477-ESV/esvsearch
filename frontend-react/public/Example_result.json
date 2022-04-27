@@ -51,6 +51,891 @@
         {
           "_index": "arbetsformedlingen",
           "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
+          "_id": "452dd0e946eebf0d7b7ecd58e307bbc5f81d02e3c5fbf6bfce110314b4227aab",
+          "_score": null,
+          "fields": {
+            "download_url": [
+              "https://arbetsformedlingen.se/download/18.3e623d4f16735f3976e852/1542900955042/V%C3%A4rmland_prognos_V2015.pdf"
+            ],
+            "title": [
+              "Arbetsmarknadsprognos Värmland 2015-2016 - Arbetsförmedlingen"
+            ],
+            "url": [
+              "https://arbetsformedlingen.se/statistik/analyser-och-prognoser/arbetsmarknadsprognoser/varmland/arbetsmarknadsprognos-varmland--2015-2016"
+            ]
+          },
+          "ignored_field_values": {
+            "date": [
+              ""
+            ]
+          },
+          "highlight": {
+            "text": [
+              "<em>Företagen</em>  <em>i</em>  <em>Värmlands</em>  <em>län</em>  <em>fortsätter</em>  <em>att</em>  <em>vara</em>  <em>optimistiska</em>  när  det  gäller  efterfrågan  på",
+              "Sysselsatta2 16 - 64 år i Värmlands län, <em>2004</em> - 2016, prognos 2015 och 2016 \n\nEfter den nedgång som skedde",
+              "Inskrivna  arbetslösa  16  -  64  år  i  Värmlands  län  kvartal  4,  <em>2004</em>  -  2016,  \nprognos för kvartal",
+              "Inskrivna arbetslösa 16 - 64 år i utsatta grupper och övriga in-\nskrivna arbetslösa, Värmlands län, januari <em>2004</em>",
+              "Inskrivna arbetslösa 16 - 64 år fördelade på enskilda grupper, \nVärmlands län, januari <em>2004</em> - april 2015"
+            ]
+          },
+          "sort": [
+            -9223372036854775808
+          ]
+        },
+        
+        {
+          "_index": "arbetsformedlingen",
+          "_type": "_doc",
           "_id": "0f9dfa33131166442db4033a805df6f1088a3adcfcb73f7d10809e9a547ea203",
           "_score": null,
           "fields": {
