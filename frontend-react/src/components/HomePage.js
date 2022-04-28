@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 import ResultPage from "./ResultPage";
 import "./../styles/HomePageStyles.css";
@@ -36,9 +36,19 @@ const HomePage = () => {
 	};
 
 	const makeRequest = (req) => {
-		const res = await axios.post("localhost:9200/_all/_search", req)
-		console.log(res.data);
-	}
+		console.log(req);
+		const headers = {
+			"Content-Type": "application/json",
+		};
+		axios.post("http://localhost:9200/_all/_search", JSON.stringify(req), { headers }).then(
+			(response) => {
+				console.log(response);
+			},
+			(error) => {
+				console.log(error);
+			}
+		);
+	};
 
 	const searchButtonClicked = (e) => {
 		console.log(termsToMatch);
@@ -75,7 +85,7 @@ const HomePage = () => {
 		};
 
 		console.log(jsonObject);
-		makeRequest(jsonObject)
+		makeRequest(jsonObject);
 	};
 
 	return (
