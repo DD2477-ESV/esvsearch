@@ -2,6 +2,10 @@
     margin: 0 auto;
 }
 
+.container-sort-results {
+
+}
+
 .all-results-container {
     width: 70%;
     margin: 0 auto;
@@ -13,7 +17,7 @@
     margin-bottom: 4px;
 }
 
-.new-search-button {
+.single-result-container-open-button {
     border: none;
 
     margin-bottom: 4px;
@@ -29,15 +33,23 @@
 
 }
 
-.new-search-button:hover {
+.single-result-container-open-button:hover {
     background-color: #4f9bda;
 }
 
-.new-search-button:active {
+.single-result-container-open-button:active {
     background-color: #1c85db;
 
 }
 
+.sort-results-alternatives-box button {
+    margin-right: 2px;
+}
+
+.active-sorting {
+    background-color: #1c85db;
+
+}
 
 .pdf-in-browser {
     width:700px; 

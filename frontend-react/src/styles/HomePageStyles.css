@@ -52,7 +52,7 @@ body {
       background-color: #06243d;
   }
   
-  .single-result-container-open-button {
+  .new-search-button {
     border: none;
 
     margin-bottom: 4px;
@@ -67,6 +67,16 @@ body {
     font-size: 17px;
 
 }
+
+.new-search-button:hover {
+  background-color: #4f9bda;
+}
+
+.new-search-button:active {
+  background-color: #1c85db;
+
+}
+
 
 .open-button-specific {
     margin-right: 4px;
