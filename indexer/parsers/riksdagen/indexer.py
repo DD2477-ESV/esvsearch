@@ -10,33 +10,38 @@ from elasticsearch import Elasticsearch
 
 
 es = Elasticsearch(constants.ELASTICSEARCH_ENDPOINT)
+TYPE_TO_INDEX = {'dir': "kommittédirektiv", 'komm': 'kommittéberättelser', 'prop': 'propositioner', 'ds': 'departementsserien', "sou": 'sou'}
 
-def extract_text_from_html(html_body):
-    """Receives html and removes styles and scripts.
-    Keyword arguments:
-    html_body -- the html that we will be cleaning up
+
+def extract_text_from_html(html):
+    """Cleans up html by removing styles + scripts and removing surplus blank space
+    Arguments:
+    html : the html to be cleaned up
+    Returns :
+    dict : {"text" : Cleaned up text (string)}
     """
-    soup = BeautifulSoup(html_body, 'html.parser')
+    soup = BeautifulSoup(html, 'html.parser')
 
-    # Remove styles and scripts from the html for ingestion into the contents
-    [s.extract() for s in soup(['style', 'script'])]
-    visible_text = soup.getText()
+    # Remove styles and scripts
+    [elem.extract() for elem in soup(['style', 'script'])]
+    text = soup.getText()
 
     # Replace multiple spaces with a single space
-    visible_text = re.sub('[^\\S\\n]+', ' ', visible_text)
-    # Replace multiple sequential newlines with a single newline
-    visible_text = re.sub('\\n+', '\\n', visible_text)
+    text = re.sub('[^\\S\\n]+', ' ', text)
+    # Replace multiple newlines with a single newline
+    text = re.sub('\\n+', '\\n', text)
     return {
-        "text": visible_text
+        "text": text
     }
 
 
-def walk_and_index_all_files(input_files_root):
-    """Walks the directory tree starting at base_dir, and ingests each xml document that
-    is encountered into an Elasticsearch index
-    Keyword arguments:
-    input_files_root -- the base directory which the html files reside in
-    index_name -- name of the index that will be used
+def index_all_files(input_files_root):
+    """Walks the directory tree starting at input_files_root,
+    extracting html and relevant metadata from each xml-file encountered
+    and indexes it into a Elasticsearch index.
+    Provides a rough estimate of the time to finish indexing after each document.
+    Arguments:
+    input_files_root : the base directory containing the xml files
     """
     count = 1
     count_size = 0
@@ -77,12 +82,13 @@ def walk_and_index_all_files(input_files_root):
                         json_to_index['title'] = title
 
                         doc_url = soup.find_all("dokument_url_html")[0].string
-
                         json_to_index["url"] = doc_url
+
                         organ = soup.find_all('organ')[0].string
+                        json_to_index['organ'] = organ
 
                         # As we are using type for the index, we'll leave subtype as the documents type
-                        # (trying to be consitant with what's available from other agencies)
+                        # (trying to be consistent with what's available from other agencies)
                         subtyp = soup.find_all('subtyp')[0].string
                         json_to_index['type'] = subtyp
 
@@ -90,10 +96,12 @@ def walk_and_index_all_files(input_files_root):
                         json_to_index['date'] = parse(date)
 
                         typ = soup.find_all('typ')[0].string
-                        json_to_index['typ'] = typ
 
-                        # use the 'typ' property as index
-                        index_name = f'riksdagen_{typ}'
+                        # use the 'typ' property in conjunction with the parser as index
+                        if typ in TYPE_TO_INDEX:
+                            index_name = f'riksdagen_{TYPE_TO_INDEX[typ]}'
+                        else:
+                            index_name = f'riksdagen_övrigt'
                         index_exists = es.indices.exists(index=index_name)
                         if not index_exists:
                             print(f'creating the index {index_name}')
