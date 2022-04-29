@@ -150,6 +150,27 @@ $ curl -X "POST" "http://localhost:9200/arbetsformedlingen/_search" \
 }'
 ```
 
+### Index Riksdagen
+
+Download the relevant zip files from [riksdagens website](https://data.riksdagen.se/data/dokument)
+
+```bash
+wget https://data.riksdagen.se/dataset/dokument/prop-2018-2021.xml.zip -O /tmp/prop-2018-2021.xml.zip
+unzip /tmp/prop-2018-2021.xml.zip -d /tmp/prop-2018-2021
+```
+
+Run the indexer
+
+```bash
+python indexer/main.py riksdagen /tmp/prop-2018-2021
+```
+
+Index is now available at
+
+```bash
+$ curl "http://localhost:9200/riksdagen_prop/_stats"
+```
+
 ### Index BRÅ
 
 Follows a similar install procedure to arbetsförmedlingen. To index, run the following command
