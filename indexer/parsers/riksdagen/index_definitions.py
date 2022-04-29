@@ -8,6 +8,7 @@ INDEX_SETTINGS = {
         'refresh_interval': '1s',
         'number_of_shards': 1,
         'number_of_replicas': 0,
+        'highlight.max_analyzed_offset': 15000000,
     },
     "analysis": {
         "analyzer": {
