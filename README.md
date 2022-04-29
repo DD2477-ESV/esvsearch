@@ -168,8 +168,21 @@ python indexer/main.py riksdagen /tmp/prop-2018-2021
 Index is now available at
 
 ```bash
-$ curl "http://localhost:9200/riksdagen_prop/_stats"
+$ curl "http://localhost:9200/riksdagen_propositioner/_stats"
 ```
+Riksdagen documents are automatically indexed into one of the following indices depending on document type:
+- Kommittédirektiv
+:  http://localhost:9200/riksdagen_kommittédirektiv
+- Kommittéberättelser
+:  http://localhost:9200/riksdagen_kommittéberättelser
+- Propositioner
+:  http://localhost:9200/riksdagen_propositioner
+- Departementsserien
+:  http://localhost:9200/riksdagen_departementsserien
+- Statliga offentliga utredningar
+:  http://localhost:9200/riksdagen_sou
+- Övrigt
+:  http://localhost:9200/riksdagen_övrigt
 
 ### Index BRÅ
 
