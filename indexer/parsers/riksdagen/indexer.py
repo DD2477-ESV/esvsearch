@@ -5,6 +5,7 @@ import codecs
 import time
 from bs4 import BeautifulSoup
 from . import index_definitions
+from dateutil.parser import parse
 from elasticsearch import Elasticsearch
 
 
@@ -26,11 +27,11 @@ def extract_text_from_html(html_body):
     # Replace multiple sequential newlines with a single newline
     visible_text = re.sub('\\n+', '\\n', visible_text)
     return {
-        "content": visible_text
+        "text": visible_text
     }
 
 
-def walk_and_index_all_files(input_files_root, index_name):
+def walk_and_index_all_files(input_files_root):
     """Walks the directory tree starting at base_dir, and ingests each xml document that
     is encountered into an Elasticsearch index
     Keyword arguments:
@@ -42,7 +43,7 @@ def walk_and_index_all_files(input_files_root, index_name):
     tot_count = 0
     tot_size = 0
     ETA = 0.0
-    
+
     for root, dirs, files in os.walk(input_files_root):
         for file in files:
             if file.endswith(".xml"):
@@ -59,7 +60,7 @@ def walk_and_index_all_files(input_files_root, index_name):
                 abs_file_path = os.path.join(input_files_root, relative_path_to_file)
                 if count > 1:
                     ETA = (time.perf_counter() - start) / count_size * (tot_size - count_size ) / 60
-                    print("indexing %s from %s , document number : %d / %d , ETA : %.2f min" % (index_name, relative_path_to_file, count, tot_count, ETA))
+                    print("indexing from %s , document number : %d / %d , ETA : %.2f min" % (relative_path_to_file, count, tot_count, ETA))
                 count_size += os.path.getsize(abs_file_path)
                 count += 1
                 with codecs.open(abs_file_path, encoding='utf-8') as infile:
@@ -67,29 +68,41 @@ def walk_and_index_all_files(input_files_root, index_name):
                     soup = BeautifulSoup(content, "xml")
                     try:
                         html = soup.find_all('html')[0].string
-                        
+
                         json_to_index = extract_text_from_html(html)
                         id = soup.find_all('dok_id')[0].string
                         json_to_index['id'] = id
-                        
-                        title = soup.find_all('titel')[0].string
-                        json_to_index['titel'] = title
-                        
-                        doc_url = soup.find_all("dokument_url_html")[0].string
-                        
-                        json_to_index["dok_url"] = doc_url
-                        organ = soup.find_all('organ')[0].string
-                        json_to_index['organ'] = organ
 
+                        title = soup.find_all('titel')[0].string
+                        json_to_index['title'] = title
+
+                        doc_url = soup.find_all("dokument_url_html")[0].string
+
+                        json_to_index["url"] = doc_url
+                        organ = soup.find_all('organ')[0].string
+
+                        # As we are using type for the index, we'll leave subtype as the documents type
+                        # (trying to be consitant with what's available from other agencies)
                         subtyp = soup.find_all('subtyp')[0].string
-                        json_to_index['subtyp'] = subtyp
+                        json_to_index['type'] = subtyp
+
+                        date = soup.find_all('publicerad')[0].string[:10]
+                        json_to_index['date'] = parse(date)
 
                         typ = soup.find_all('typ')[0].string
                         json_to_index['typ'] = typ
-                        
-                        date = soup.find_all('publicerad')[0].string[:10]
-                        json_to_index['date'] = date
-                        
+
+                        # use the 'typ' property as index
+                        index_name = f'riksdagen_{typ}'
+                        index_exists = es.indices.exists(index=index_name)
+                        if not index_exists:
+                            print(f'creating the index {index_name}')
+                            request_body = {
+                                'settings': index_definitions.INDEX_SETTINGS,
+                                'mappings': index_definitions.INDEX_MAPPINGS
+                            }
+                            es.indices.create(index=index_name, body=request_body)
+
                         es.index(
                             index=index_name,
                             id=id,
@@ -98,29 +111,3 @@ def walk_and_index_all_files(input_files_root, index_name):
                     except IndexError:
                         print('No HTML available in document : %s' % (relative_path_to_file))
                         continue
-
-
-def configure_index(index_name):
-    """Ensures that settings and mappings are defined on the Elasticsearch
-     index that we will write our documents into.
-    Keyword arguments:
-    index_name -- name of the index that will be used
-    """
-    index_exists = es.indices.exists(index=index_name)
-    if index_exists:
-        print("Index: %s already exists. Would you like to delete, append, or abort" % index_name)
-        answer = input('Type one of [O]verwrite, [A]ppend or [C]ancel: ')
-        # answer = 'append'
-        if answer.lower() == 'o':
-            es.indices.delete(index=index_name, ignore=[400, 404])
-            index_exists = False
-        elif answer.lower() == 'c':
-            exit(0)
-
-    # If the index doesn't exist, then write settings/mappings
-    if not index_exists:
-        request_body = {
-            'settings': index_definitions.INDEX_SETTINGS,
-            'mappings': index_definitions.INDEX_MAPPINGS
-        }
-        es.indices.create(index=index_name, body=request_body)
