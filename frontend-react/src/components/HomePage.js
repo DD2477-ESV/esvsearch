@@ -28,7 +28,7 @@ const HomePage = () => {
 			pdfsToView.push(docInfo);
 		}
 		// Set state to found documents
-		//setResult(pdfsToView);
+		setResult(pdfsToView);
 	};
 
 	const newSearchClicked = (e) => {
@@ -43,6 +43,7 @@ const HomePage = () => {
 		axios.post("http://localhost:9200/_all/_search", JSON.stringify(req), { headers }).then(
 			(response) => {
 				console.log(response);
+				handleResponse(response.data);
 			},
 			(error) => {
 				console.log(error);
