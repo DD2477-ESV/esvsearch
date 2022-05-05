@@ -292,10 +292,40 @@ const HomePage = () => {
 					<div className="container">
 						<input
 							type="checkbox"
-							value={"riksdagen"}
+							value={"riksdagen_kommittédirektiv"}
 							onChange={handleCheckbox}
 						/>{" "}
-						Riksdagen <br />
+						Riksdagen: kommittédirektiv <br />
+						<input
+							type="checkbox"
+							value={"riksdagen_kommittéberättelser"}
+							onChange={handleCheckbox}
+						/>{" "}
+						Riksdagen: kommittéberättelser <br />
+						<input
+							type="checkbox"
+							value={"riksdagen_propositioner"}
+							onChange={handleCheckbox}
+						/>{" "}
+						Riksdagen: Propositioner <br />
+						<input
+							type="checkbox"
+							value={"riksdagen_departementsserien"}
+							onChange={handleCheckbox}
+						/>{" "}
+						Riksdagen: Departementsserien <br />
+						<input
+							type="checkbox"
+							value={"riksdagen_sou"}
+							onChange={handleCheckbox}
+						/>{" "}
+						Riksdagen: Sou <br />
+						<input
+							type="checkbox"
+							value={"riksdagen_övrigt"}
+							onChange={handleCheckbox}
+						/>{" "}
+						Riksdagen: Övrigt <br />
 						<input
 							type="checkbox"
 							value={"arbetsformedlingen"}
