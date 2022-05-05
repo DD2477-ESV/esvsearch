@@ -42,10 +42,17 @@ const HomePage = () => {
 		for (let i = 0; i < hits.length; i++) {
 			const resHit = hits[i];
 			//console.log(resHit);
+			if (!resHit.fields.title) continue;
 			let title = resHit.fields.title[0];
-			let url = resHit.fields.download_url[0];
+			let url = '';
+			if (resHit.fields.download_url) {
+				url = resHit.fields.download_url[0];
+			} else if (resHit.fields.url) {
+				url = resHit.fields.url[0];
+			}
 			let preview = resHit.highlight;
-			let docInfo = { title, preview, url };
+			let index = resHit._index;
+			let docInfo = { title, preview, url, index };
 			console.log(docInfo);
 			pdfsToView.push(docInfo);
 		}

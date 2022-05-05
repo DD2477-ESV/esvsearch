@@ -118,6 +118,7 @@ const ResultPage = (props) => {
 					return (
 						<div key={doc.url} className="single-result-container">
 							<h3>{doc.title}</h3>
+							<h5>{doc.index}</h5>
 							{/* <div>
 								{
 									doc.preview.text.map((elem) => {
@@ -140,7 +141,7 @@ const ResultPage = (props) => {
 									{"Ladda ner"}
 								</button>
 							</a>
-							{docToView === doc.url ? (
+							{docToView === doc.url && doc.url !== '' ? (
 								<div className={"pdf-to-view"}>
 									<iframe
 										src={docToView}
