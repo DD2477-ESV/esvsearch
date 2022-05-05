@@ -118,6 +118,13 @@ const ResultPage = (props) => {
 					return (
 						<div key={doc.url} className="single-result-container">
 							<h3>{doc.title}</h3>
+							{/* <div>
+								{
+									doc.preview.text.map((elem) => {
+										return elem;
+									})
+								}
+							</div> */}
 							<button
 								value={doc.url}
 								onClick={documentClicked}
