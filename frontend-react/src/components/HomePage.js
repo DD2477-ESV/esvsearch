@@ -16,21 +16,21 @@ const HomePage = () => {
 	const [dateFrom, setDateFrom] = useState("");
 	const [dateTo, setDateTo] = useState("");
 	const [finalQuery, setFinalQuery] = useState({});
-	const [myndigheter, setMyndigheter] = useState([])
-	const [reqAddr, setReqAddr] = useState("http://localhost:9200/_all/_search")
+	const [myndigheter, setMyndigheter] = useState([]);
+	const [reqAddr, setReqAddr] = useState("http://localhost:9200/_all/_search");
 
 	useEffect(() => {
 		let jsonObject = {
 			query: {
 				bool: {},
-				fields: ["url", "download_url", "date", "title"],
-				highlight: {
-					fields: {
-						text: {},
-					},
-				},
-				_source: false,
 			},
+			fields: ["url", "download_url", "date", "title"],
+			highlight: {
+				fields: {
+					text: {},
+				},
+			},
+			_source: false,
 		};
 
 		setFinalQuery(jsonObject);
@@ -51,6 +51,9 @@ const HomePage = () => {
 		}
 		// Set state to found documents
 		setResult(pdfsToView);
+		if (pdfsToView.length === 0) {
+			alert("Inga resultat hittades. Var vänlig ändra sökning")
+		}
 	};
 
 	const newSearchClicked = (e) => {
@@ -59,7 +62,18 @@ const HomePage = () => {
 
 	const makeRequest = (req) => {
 		console.log(req);
-		console.log(reqAddr)
+		if (myndigheter.length !== 0) {
+			let listToAdd = "";
+			for (let i = 0; i < myndigheter.length; i++) {
+				listToAdd = listToAdd + myndigheter[i];
+				if (i !== myndigheter.length - 1) {
+					listToAdd = listToAdd + ",";
+				}
+			}
+			let addr = "http://localhost:9200/" + listToAdd + "/_search";
+			setReqAddr(addr);
+		}
+		console.log(reqAddr);
 
 		const headers = {
 			"Content-Type": "application/json",
@@ -83,21 +97,29 @@ const HomePage = () => {
 		/*const [termsToMatch, setTermsToMatch] = useState("");
 		const [phrase, setPhrase] = useState("");*/
 		let must = [];
-		let matchObject = {};
+
 		let changed = false;
 		console.log(finalQuery);
 		if (termsToMatch !== "") {
-			matchObject["query"] = termsToMatch;
-			matchObject["operator"] = "and";
+			let matchObject = {
+				match: {
+					text: {},
+				},
+			};
+			matchObject.match.text["query"] = termsToMatch;
+			matchObject.match.text["operator"] = "and";
+			must.push(matchObject)
 			changed = true;
 		}
 		if (phraseToMatch !== "") {
-			matchObject["match_phrase"] = phraseToMatch;
+			let matchObject = {}
+			let temp = { text: phraseToMatch };
+			matchObject["match_phrase"] = temp;
+			must.push(matchObject)
 			changed = true;
 		}
 
 		if (changed === true) {
-			must.push(matchObject);
 			let query = finalQuery;
 			query.query.bool["must"] = must;
 			setFinalQuery(query);
@@ -110,23 +132,31 @@ const HomePage = () => {
 	const handleMustNot = () => {
 		let must_not = [];
 
-		let matchNotObject = {};
 
 		let changed = false;
 
 		if (termsNotToMatch !== "") {
-			matchNotObject["query"] = termsNotToMatch;
-			matchNotObject["operator"] = "and";
+			let matchNotObject = {
+				match: {
+					text: {},
+				},
+			};
+
+			matchNotObject.match.text["query"] = termsNotToMatch;
+			matchNotObject.match.text["operator"] = "and";
+			must_not.push(matchNotObject)
 			changed = true;
 		}
 
 		if (phraseNotToMatch !== "") {
-			matchNotObject["match_phrase"] = phraseNotToMatch;
+			let matchNotObject = {}
+			let temp = { text: phraseNotToMatch };
+			matchNotObject["match_phrase"] = temp;
+			must_not.push(matchNotObject)
 			changed = true;
 		}
 
 		if (changed === true) {
-			must_not.push(matchNotObject);
 			let query = finalQuery;
 			query.query.bool["must_not"] = must_not;
 			setFinalQuery(query);
@@ -165,41 +195,28 @@ const HomePage = () => {
 			for (let i = 0; i < current.length; i++) {
 				if (current[i] === e.target.value) {
 					add = false;
-					current.splice(i,1)
+					current.splice(i, 1);
 				}
 			}
 		}
 		if (add === true) {
-			current.push(e.target.value)
+			current.push(e.target.value);
 		}
-		setMyndigheter(current)
+		setMyndigheter(current);
 		console.log(myndigheter);
-	}
-
+	};
 
 	const searchButtonClicked = (e) => {
+		setReqAddr("http://localhost:9200/_all/_search"); // default
 		handleMust();
 		handleMustNot();
 		handleDates();
 
 		let jsonObject = finalQuery;
 		console.log(jsonObject);
-		
-		if (myndigheter.length !== 0) {
-			let listToAdd = ""
-			for (let i = 0; i < myndigheter.length; i++) {
-				listToAdd = listToAdd + myndigheter[i]
-				if (i !== myndigheter.length - 1) {
-					listToAdd = listToAdd + ","
-				}
-			}
-			let addr = "http://localhost:9200/" + listToAdd + "/_search"
-			setReqAddr(addr)
-		}
 
 		makeRequest(jsonObject);
 	};
-
 
 	return (
 		<div className="homepage-main-container">
@@ -266,22 +283,78 @@ const HomePage = () => {
 					</button>
 					<h3 className="h3_checkboxes">Myndigheter</h3>
 					<div className="container">
-							<input type="checkbox" value={"riksdagen"} onChange={ handleCheckbox}/> Riksdagen <br />
-						<input type="checkbox" value={"arbetsformedlingen"} onChange={ handleCheckbox}/>{" "}
+						<input
+							type="checkbox"
+							value={"riksdagen"}
+							onChange={handleCheckbox}
+						/>{" "}
+						Riksdagen <br />
+						<input
+							type="checkbox"
+							value={"arbetsformedlingen"}
+							onChange={handleCheckbox}
+						/>{" "}
 						Arbetsförmedlingen <br />
-						<input type="checkbox" value={"bra"} onChange={ handleCheckbox}/> BRÅ <br />
-						<input type="checkbox" value={"msb"} onChange={ handleCheckbox}/> MSB <br />
-						<input type="checkbox" value={"fhm"} onChange={ handleCheckbox}/> Folkhälsomyndigheten <br />
-						<input type="checkbox" value={"forsakringskassan"} onChange={ handleCheckbox}/>
+						<input
+							type="checkbox"
+							value={"bra"}
+							onChange={handleCheckbox}
+						/>{" "}
+						BRÅ <br />
+						<input
+							type="checkbox"
+							value={"msb"}
+							onChange={handleCheckbox}
+						/>{" "}
+						MSB <br />
+						<input
+							type="checkbox"
+							value={"fhm"}
+							onChange={handleCheckbox}
+						/>{" "}
+						Folkhälsomyndigheten <br />
+						<input
+							type="checkbox"
+							value={"forsakringskassan"}
+							onChange={handleCheckbox}
+						/>
 						Försäkringskassan <br />
-						<input type="checkbox" value={"esv"} onChange={ handleCheckbox}/> Ekonomistyrningsverket{" "}
-						<br />
-						<input type="checkbox" value={"polisen"} onChange={ handleCheckbox}/> Polisen <br />
-						<input type="checkbox" value={"pts"} onChange={ handleCheckbox} /> Post- och telestyrelsen{" "}
-						<br />
-						<input type="checkbox" value={"fi"} onChange={ handleCheckbox} /> Finansinspektionen <br />
-						<input type="checkbox" value={"riksbanken"} onChange={ handleCheckbox} /> Riksbanken <br />
-						<input type="checkbox" value={"foi"} onChange={ handleCheckbox}/> FOI <br />
+						<input
+							type="checkbox"
+							value={"esv"}
+							onChange={handleCheckbox}
+						/>{" "}
+						Ekonomistyrningsverket <br />
+						<input
+							type="checkbox"
+							value={"polisen"}
+							onChange={handleCheckbox}
+						/>{" "}
+						Polisen <br />
+						<input
+							type="checkbox"
+							value={"pts"}
+							onChange={handleCheckbox}
+						/>{" "}
+						Post- och telestyrelsen <br />
+						<input
+							type="checkbox"
+							value={"fi"}
+							onChange={handleCheckbox}
+						/>{" "}
+						Finansinspektionen <br />
+						<input
+							type="checkbox"
+							value={"riksbanken"}
+							onChange={handleCheckbox}
+						/>{" "}
+						Riksbanken <br />
+						<input
+							type="checkbox"
+							value={"foi"}
+							onChange={handleCheckbox}
+						/>{" "}
+						FOI <br />
 						<input
 							type="checkbox"
 							value={"socialstyrelsen"}
