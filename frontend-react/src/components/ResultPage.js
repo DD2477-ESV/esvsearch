@@ -4,7 +4,7 @@ import "./../styles/ResultPageStyles.css";
 
 const ResultPage = (props) => {
 	const [docToView, setDocToView] = useState("");
-	const [allDocuements, setAllDocuments] = useState([]);
+	const [allDocuments, setAllDocuments] = useState([]);
 	const [documentsToView, setDocumentsToView] = useState([]);
 	const [chosenSorting, setChosenSorting] = useState("relevance");
 
@@ -29,21 +29,23 @@ const ResultPage = (props) => {
 			const currentNumberOfDocuments = documentsToView.length;
 			setDocumentsToView(
 				documentsToView.concat(
-					allDocuements.slice(
+					allDocuments.slice(
 						currentNumberOfDocuments,
 						currentNumberOfDocuments + 10
 					)
 				)
 			);
 		} else {
-			setDocumentsToView(allDocuements);
+			setDocumentsToView(allDocuments);
 		}
 	};
 
 	/* Functions for handling the sorting of results */
 
+	let chosenValue = ""
+
 	const compare = (a, b) => {
-		switch (chosenSorting) {
+		switch (chosenValue) {
 			case "relevance":
 				console.log("TODO");
 				break;
@@ -64,16 +66,20 @@ const ResultPage = (props) => {
 	};
 
 	const sortButtonClicked = (e) => {
-		setChosenSorting(e.target.value);
-		setAllDocuments(allDocuements.sort(compare));
+		chosenValue = e.target.value;
+		setChosenSorting(e.target.value)
+		if (e.target.value === "relevance") {
+			setAllDocuments(props.documents)
+		} else {
+			setAllDocuments(allDocuments.sort(compare));
+		}
 	};
 
 	// https://github.com/wojtekmaj/react-pdf
 	return (
 		<div className="result-page-container">
-			<div className="container-sort-results">
+			{/* <div className="container-sort-results">
 				{" "}
-				{/* En box för att sortera resultat */}
 				<h3>Sortera resultat efter</h3>
 				<div className="sort-results-alternatives-box">
 					<button
@@ -110,7 +116,7 @@ const ResultPage = (props) => {
 						Titel
 					</button>
 				</div>
-			</div>
+			</div> */}
 
 			<div className="all-results-container">
 				<h3>{"Visar " + documentsToView.length + " dokument"}</h3>
