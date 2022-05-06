@@ -78,8 +78,14 @@ const HomePage = () => {
 					listToAdd = listToAdd + ",";
 				}
 			}
-			addr = "http://localhost:9200/" + listToAdd + "/_search";
+			if (listToAdd === "") {
+				addr = "http://localhost:9200/_all/_search"
+			} else {
+				addr = "http://localhost:9200/" + listToAdd + "/_search";
+			}
 			setReqAddr(addr);
+		} else {
+			addr = "http://localhost:9200/_all/_search"
 		}
 
 		console.log("addr: " + addr)
