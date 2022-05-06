@@ -69,6 +69,7 @@ const HomePage = () => {
 
 	const makeRequest = (req) => {
 		console.log(req);
+		let addr = ""
 		if (myndigheter.length !== 0) {
 			let listToAdd = "";
 			for (let i = 0; i < myndigheter.length; i++) {
@@ -77,16 +78,16 @@ const HomePage = () => {
 					listToAdd = listToAdd + ",";
 				}
 			}
-			let addr = "http://localhost:9200/" + listToAdd + "/_search";
+			addr = "http://localhost:9200/" + listToAdd + "/_search";
 			setReqAddr(addr);
 		}
-		console.log(reqAddr);
 
+		console.log("addr: " + addr)
 		const headers = {
 			"Content-Type": "application/json",
 		};
 		axios
-			.post(reqAddr, JSON.stringify(req), {
+			.post(addr, JSON.stringify(req), {
 				headers,
 			})
 			.then(
