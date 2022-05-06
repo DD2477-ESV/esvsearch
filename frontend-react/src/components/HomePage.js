@@ -293,6 +293,12 @@ const HomePage = () => {
 					<div className="container">
 						<input
 							type="checkbox"
+							value={"_all"}
+							onChange={handleCheckbox}
+						/>{" "}
+						Alla <br />
+						<input
+							type="checkbox"
 							value={"riksdagen_kommittédirektiv"}
 							onChange={handleCheckbox}
 						/>{" "}
