@@ -1,0 +1,57 @@
+.result-page-container {
+    margin: 0 auto;
+}
+
+.container-sort-results {
+
+}
+
+.all-results-container {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 8px;
+}
+
+.single-result-container {
+    border: 2px solid #0D89EC;
+    margin-bottom: 4px;
+}
+
+.single-result-container-open-button {
+    border: none;
+
+    margin-bottom: 4px;
+    background-color: #79add8;
+    border: 2px solid #4a9adb;
+    border-radius: 2px;
+    color: whitesmoke;
+    text-align: center;
+    padding: 12px 14px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 17px;
+
+}
+
+.single-result-container-open-button:hover {
+    background-color: #4f9bda;
+}
+
+.single-result-container-open-button:active {
+    background-color: #1c85db;
+
+}
+
+.sort-results-alternatives-box button {
+    margin-right: 2px;
+}
+
+.active-sorting {
+    background-color: #1c85db;
+
+}
+
+.pdf-in-browser {
+    width:700px; 
+    height:800px;
+}
