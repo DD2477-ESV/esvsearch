@@ -13,20 +13,28 @@ const ResultPage = (props) => {
 		props.documents.length < 20
 			? setDocumentsToView(props.documents)
 			: setDocumentsToView(props.documents.slice(0, 20));
-		// Det här kollar hur många dokument vi har i resultatet och hur många dokument vi vill visa
+		// Checks how many documents the search got, and how many we want to view at the beginining
 	}, []);
 
 	const documentClicked = (e) => {
 		//e.preventDefault();
+		// Checks if the current docToView is the same as the one clicked - if so close it, else view it
 		docToView === e.target.value
 			? setDocToView("")
 			: setDocToView(e.target.value);
 		console.log(e.target.value);
 	};
 
+	/**
+	 * Function to handle when user wants to view more documents
+	 * Adds 10 each time to the list
+	 */
 	const viewMoreClicked = (e) => {
 		if (documentsToView.length + 10 < props.documents.length) {
+			// Checks if the current length plus 10 more is less than all possible documents
 			const currentNumberOfDocuments = documentsToView.length;
+			// If so, add 10 more to the current
+			// This is done by concating documents to view, and slicing the next then from all possible documents
 			setDocumentsToView(
 				documentsToView.concat(
 					allDocuments.slice(
@@ -35,16 +43,16 @@ const ResultPage = (props) => {
 					)
 				)
 			);
-		} else {
+		} else { // If currently viewed documents plus 10 more is more than available, render all
 			setDocumentsToView(allDocuments);
 		}
 	};
 
-	/* Functions for handling the sorting of results */
+	/* Functions for handling the sorting of results NOT IMPLEMENTED AT THE MOMENT */
 
-	let chosenValue = ""
+	//let chosenValue = ""
 
-	const compare = (a, b) => {
+	/* const compare = (a, b) => {
 		switch (chosenValue) {
 			case "relevance":
 				console.log("TODO");
@@ -64,8 +72,8 @@ const ResultPage = (props) => {
 				return 0;
 		}
 	};
-
-	const sortButtonClicked = (e) => {
+ */
+	/* const sortButtonClicked = (e) => {
 		chosenValue = e.target.value;
 		setChosenSorting(e.target.value)
 		if (e.target.value === "relevance") {
@@ -73,7 +81,7 @@ const ResultPage = (props) => {
 		} else {
 			setAllDocuments(allDocuments.sort(compare));
 		}
-	};
+	}; */
 
 	// https://github.com/wojtekmaj/react-pdf
 	return (

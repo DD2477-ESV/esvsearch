@@ -19,7 +19,7 @@ const HomePage = () => {
 	const [myndigheter, setMyndigheter] = useState([]);
 	const [reqAddr, setReqAddr] = useState("http://localhost:9200/_all/_search");
 
-	useEffect(() => {
+	useEffect(() => { // Called when the page is opened, creates the default query we will add user input to
 		let jsonObject = {
 			query: {
 				bool: {},
@@ -36,12 +36,14 @@ const HomePage = () => {
 		setFinalQuery(jsonObject);
 	}, []);
 
+	/**
+	 * Function that get the result from a search and handles it
+	 */
 	const handleResponse = (res) => {
 		let pdfsToView = [];
-		const hits = res.hits.hits;
-		for (let i = 0; i < hits.length; i++) {
+		const hits = res.hits.hits; // All the found reports
+		for (let i = 0; i < hits.length; i++) { // Goes through each report and creates an object with needed information from it
 			const resHit = hits[i];
-			//console.log(resHit);
 			if (!resHit.fields.title) continue;
 			let title = resHit.fields.title[0];
 			let url = '';
@@ -58,7 +60,7 @@ const HomePage = () => {
 		}
 		// Set state to found documents
 		setResult(pdfsToView);
-		if (pdfsToView.length === 0) {
+		if (pdfsToView.length === 0) { // No results found
 			alert("Inga resultat hittades. Var vänlig ändra sökning")
 		}
 	};
@@ -67,31 +69,36 @@ const HomePage = () => {
 		setResult([]);
 	};
 
+	/*
+	* Function that makes the request to the backend
+	*/
 	const makeRequest = (req) => {
 		console.log(req);
-		let addr = ""
-		if (myndigheter.length !== 0) {
+		let addr = "" // The request address
+		if (myndigheter.length !== 0) { // If true, specific checkboxes has been entered
 			let listToAdd = "";
-			for (let i = 0; i < myndigheter.length; i++) {
-				listToAdd = listToAdd + myndigheter[i];
-				if (i !== myndigheter.length - 1) {
+			for (let i = 0; i < myndigheter.length; i++) { // Goes through every entry
+				listToAdd = listToAdd + myndigheter[i]; // Adds that index address to the request address
+				if (i !== myndigheter.length - 1) { // Everything but the last entry needs to be seperated by a comma
 					listToAdd = listToAdd + ",";
 				}
 			}
-			if (listToAdd === "") {
+			if (listToAdd === "") { // If empty we set addr to default which searching all index
 				addr = "http://localhost:9200/_all/_search"
-			} else {
+			} else { // The request address is localhost plus all specific addresses
 				addr = "http://localhost:9200/" + listToAdd + "/_search";
 			}
 			setReqAddr(addr);
-		} else {
+		} else { // Got weird bugs without this basecase due to react state, messy code but keep for now
 			addr = "http://localhost:9200/_all/_search"
 		}
 
 		console.log("addr: " + addr)
+		// Specifying headers to be json
 		const headers = {
 			"Content-Type": "application/json",
 		};
+		// Makes axios request, if successful handleResponse is called with the result from the search
 		axios
 			.post(addr, JSON.stringify(req), {
 				headers,
@@ -107,6 +114,9 @@ const HomePage = () => {
 			);
 	};
 
+	/**
+	 * Helper function to handle the "must" part of the queries
+	 */
 	const handleMust = () => {
 		let must = [];
 
@@ -141,28 +151,31 @@ const HomePage = () => {
 		}
 	};
 
+	/**
+	 * Helper function to handle must not part of the query
+	 */
 	const handleMustNot = () => {
 		let must_not = [];
 
 
 		let changed = false;
 
-		if (termsNotToMatch !== "") {
-			let matchNotObject = {
+		if (termsNotToMatch !== "") { // Checks if the user has entered terms not to match
+			let matchNotObject = { // Object to add input to
 				match: {
 					text: {},
 				},
 			};
 
-			matchNotObject.match.text["query"] = termsNotToMatch;
+			matchNotObject.match.text["query"] = termsNotToMatch; // Input from the user
 			matchNotObject.match.text["operator"] = "and";
 			must_not.push(matchNotObject)
 			changed = true;
 		}
 
-		if (phraseNotToMatch !== "") {
-			let matchNotObject = {}
-			let temp = { text: phraseNotToMatch };
+		if (phraseNotToMatch !== "") { // Checks if the user has entered phrase not to match
+			let matchNotObject = {} // Object to add input to
+			let temp = { text: phraseNotToMatch }; // Add the users input as "text" to the query
 			matchNotObject["match_phrase"] = temp;
 			must_not.push(matchNotObject)
 			changed = true;
@@ -170,23 +183,26 @@ const HomePage = () => {
 
 		if (changed === true) {
 			let query = finalQuery;
-			query.query.bool["must_not"] = must_not;
+			query.query.bool["must_not"] = must_not; // Adds the created objects to "must_not" field to the query
 			setFinalQuery(query);
 		}
 	};
 
+	/**
+	 * Function to handle if the user has entered dates as input
+	 */
 	const handleDates = () => {
-		let filter = {
+		let filter = { // The object to add date input to
 			range: {
 				date: {},
 			},
 		};
 		let changed = false;
-		if (dateFrom !== "") {
+		if (dateFrom !== "") { // Checks if a date-from is specified
 			changed = true;
-			filter.range.date["gte"] = dateFrom + "-01-01";
+			filter.range.date["gte"] = dateFrom + "-01-01"; // Sets from to the start of that year
 			if (dateTo !== "") {
-				filter.range.date["lte"] = dateTo + "-01-01";
+				filter.range.date["lte"] = dateTo + "-01-01"; // Sets end to end of that year
 			}
 		} else if (dateTo !== "") {
 			// TODO, osäker på om man kan söka enbart på slutddatum, annars fixa detta
@@ -203,15 +219,15 @@ const HomePage = () => {
 	const handleCheckbox = (e) => {
 		let current = myndigheter;
 		let add = true;
-		if (current.length !== 0) {
-			for (let i = 0; i < current.length; i++) {
-				if (current[i] === e.target.value) {
-					add = false;
-					current.splice(i, 1);
+		if (current.length !== 0) { // Checks if one or more boxes already has been checked
+			for (let i = 0; i < current.length; i++) { // Goes through all the entires
+				if (current[i] === e.target.value) { // If current[i] is the same as the event value the box was unchecked
+					add = false; // Shouldn't add anything new
+					current.splice(i, 1); // Removes the unchcked value from the list
 				}
 			}
 		}
-		if (add === true) {
+		if (add === true) { // This will always be true if the current list of checkboxes was empty
 			current.push(e.target.value);
 		}
 		setMyndigheter(current);
@@ -219,7 +235,9 @@ const HomePage = () => {
 	};
 
 	const searchButtonClicked = (e) => {
-		setReqAddr("http://localhost:9200/_all/_search"); // default
+		setReqAddr("http://localhost:9200/_all/_search"); // default address
+
+		// Calls all the helper function to handle input and create json from it
 		handleMust();
 		handleMustNot();
 		handleDates();
