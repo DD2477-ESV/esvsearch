@@ -2,6 +2,16 @@
 
 ## Usage
 
+### Start the frontend
+
+```bash
+cd frontend-react/
+npm ci
+npm run start
+
+# should now be available at http://localhost:3000
+```
+
 
 ### Launch a docker instance
 
