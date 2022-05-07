@@ -1,30 +1,16 @@
 # ESV Search
 
-## Project Outline
-
-- Indexerings Job
-  1. Sätta upp elastic (på port :9200)
-  2. `$ python index.py path_to_xml_directory`
-     - parsa alla dokument
-     - plocka ur text och taggar
-     - skicka in alla doc i ES
-  3. `$ python manage_index.py`
-     (- enkelt kunna rensa index)
-  4. andra datakällor
-  5. webcrawl för att ladda ner xml:erna
-
-- Sök interface
-  1. skapa en django app
-  2. en sida med sök ruta
-  3. submit av sök input skickar query till elasticsearch
-  4. matchande dokumenten renderas i söksidan
-  5. klicka på sökresultat visar dokumentet
-  6. mer avancerade sökfilter
-     - kategorier
-     - datum
-     - etc.
-
 ## Usage
+
+### Start the frontend
+
+```bash
+cd frontend-react/
+npm ci
+npm run start
+
+# should now be available at http://localhost:3000
+```
 
 
 ### Launch a docker instance
@@ -32,7 +18,7 @@
 To start an elasticsearch instance on localhost:9200 using docker
 
 ```bash
-docker run -p 127.0.0.1:9200:9200 -p 127.0.0.1:9300:9300 -e "discovery.type=single-node" -e "xpack.security.enabled=false" docker.elastic.co/elasticsearch/elasticsearch:8.1.2
+docker run -p 127.0.0.1:9200:9200 -p 127.0.0.1:9300:9300 -e "discovery.type=single-node" -e "xpack.security.enabled=false" -e "http.cors.enabled=true" -e "http.cors.allow-origin=/http?:\/\/localhost(:[0-9]+)?/" docker.elastic.co/elasticsearch/elasticsearch:8.1.2
 ```
 
 ### Index Arbetsförmedlingen
