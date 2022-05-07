@@ -31,13 +31,21 @@ body {
     border: none;
   }
 
+  .search-fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .search-fields input {  
+    width: 30%;
+    align-self: center;
   }
   
   .homepage-main-container {
   }
 
   .homepage-search-button {
+    margin-top: 8px;
       float: center;
       padding: 6px 10px;
       background: #aec8de;

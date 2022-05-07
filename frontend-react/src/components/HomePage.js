@@ -108,8 +108,6 @@ const HomePage = () => {
 	};
 
 	const handleMust = () => {
-		/*const [termsToMatch, setTermsToMatch] = useState("");
-		const [phrase, setPhrase] = useState("");*/
 		let must = [];
 
 		let changed = false;
