@@ -146,8 +146,11 @@ def index_documents(docs, cache_dir, endpoint, index_name):
 
     for checksum in docs:
         doc = docs[checksum]
-        es.index(
-            index=index_name,
-            id=doc.checksum,
-            body=doc.to_dict()
-        )
+        try:
+            es.index(
+                index=index_name,
+                id=doc.checksum,
+                body=doc.to_dict()
+            )
+        except:
+            print(f'failed to index document {checksum}')
